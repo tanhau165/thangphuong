@@ -19,6 +19,33 @@ namespace JWTPlay2.Controller
     public class AccountController : ApiController
     {
         PizzaSalesEntities db = new PizzaSalesEntities();
+
+
+
+
+
+        [HttpPost]
+        [Route("register")]
+        public IHttpActionResult Register([FromBody] User user)
+        {
+
+            var existingUser = db.Users.FirstOrDefault(u => u.email == user.email);
+            if(existingUser != null)
+            {
+                return BadRequest("Email already !");
+            }
+
+            db.Users.Add(user);
+            try
+            {
+                db.SaveChanges();
+                return Ok(user);
+            }catch(Exception e)
+            {
+                return BadRequest("Username already !");
+            }
+        }
+
         [AllowAnonymous]       
         [HttpPost]
         [Route("login")]
@@ -95,7 +122,7 @@ namespace JWTPlay2.Controller
 
             var token = JsonWebToken.Encode(payload, apikey, JwtHashAlgorithm.HS256);
 
-            dbUser = new { user.email, user.user_id };
+            dbUser = new { user.user_id, user.firstName, user.lastName };
             return token;
         }
 
