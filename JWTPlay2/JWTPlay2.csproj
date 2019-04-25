@@ -195,6 +195,7 @@
       <DependentUpon>PizzaSales.tt</DependentUpon>
     </Compile>
     <Compile Include="Controller\AccountController.cs" />
+    <Compile Include="Controller\CategoriesController.cs" />
     <Compile Include="Controller\ProductsController.cs" />
     <Compile Include="ExpirationToken.cs">
       <DependentUpon>PizzaSales.tt</DependentUpon>

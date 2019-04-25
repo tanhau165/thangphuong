@@ -12,45 +12,44 @@ using JWTPlay2;
 
 namespace JWTPlay2.Controller
 {
-    public class ProductsController : ApiController
+    public class CategoriesController : ApiController
     {
         private PizzaSalesEntities db = new PizzaSalesEntities();
 
-        // GET: api/Products
-        public IHttpActionResult GetProducts()
+        // GET: api/Categories
+        public IQueryable<Category> GetCategories()
         {
-            var ds = db.Products.ToList();
-            return Ok(ds);
+            return db.Categories;
         }
 
-        // GET: api/Products/5
-        [ResponseType(typeof(Product))]
-        public IHttpActionResult GetProduct(int id)
+        // GET: api/Categories/5
+        [ResponseType(typeof(Category))]
+        public IHttpActionResult GetCategory(int id)
         {
-            Product product = db.Products.Find(id);
-            if (product == null)
+            Category category = db.Categories.Find(id);
+            if (category == null)
             {
                 return NotFound();
             }
 
-            return Ok(product);
+            return Ok(category);
         }
 
-        // PUT: api/Products/5
+        // PUT: api/Categories/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutProduct(int id, Product product)
+        public IHttpActionResult PutCategory(int id, Category category)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != product.id)
+            if (id != category.id)
             {
                 return BadRequest();
             }
 
-            db.Entry(product).State = EntityState.Modified;
+            db.Entry(category).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +57,7 @@ namespace JWTPlay2.Controller
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProductExists(id))
+                if (!CategoryExists(id))
                 {
                     return NotFound();
                 }
@@ -71,35 +70,35 @@ namespace JWTPlay2.Controller
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Products
-        [ResponseType(typeof(Product))]
-        public IHttpActionResult PostProduct(Product product)
+        // POST: api/Categories
+        [ResponseType(typeof(Category))]
+        public IHttpActionResult PostCategory(Category category)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Products.Add(product);
+            db.Categories.Add(category);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = product.id }, product);
+            return CreatedAtRoute("DefaultApi", new { id = category.id }, category);
         }
 
-        // DELETE: api/Products/5
-        [ResponseType(typeof(Product))]
-        public IHttpActionResult DeleteProduct(int id)
+        // DELETE: api/Categories/5
+        [ResponseType(typeof(Category))]
+        public IHttpActionResult DeleteCategory(int id)
         {
-            Product product = db.Products.Find(id);
-            if (product == null)
+            Category category = db.Categories.Find(id);
+            if (category == null)
             {
                 return NotFound();
             }
 
-            db.Products.Remove(product);
+            db.Categories.Remove(category);
             db.SaveChanges();
 
-            return Ok(product);
+            return Ok(category);
         }
 
         protected override void Dispose(bool disposing)
@@ -111,9 +110,9 @@ namespace JWTPlay2.Controller
             base.Dispose(disposing);
         }
 
-        private bool ProductExists(int id)
+        private bool CategoryExists(int id)
         {
-            return db.Products.Count(e => e.id == id) > 0;
+            return db.Categories.Count(e => e.id == id) > 0;
         }
     }
 }

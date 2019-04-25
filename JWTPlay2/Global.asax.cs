@@ -18,6 +18,10 @@ namespace JWTPlay2
 
         protected void Application_Start(object sender, EventArgs e)
         {
+            HttpConfiguration config = GlobalConfiguration.Configuration;
+            config.Formatters.JsonFormatter
+            .SerializerSettings
+            .ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             //GlobalConfiguration.Configure(WebApiConfig.Register);
             //GlobalConfiguration.Configure(FilterConfig.Register);
             //GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
