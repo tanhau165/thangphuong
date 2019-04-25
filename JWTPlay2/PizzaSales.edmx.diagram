@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="083475ebf1924cfcbf3d69130bf35d88" Name="Diagram1">
+        <EntityTypeShape EntityType="PizzaSalesModel.Category" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaSalesModel.ExpirationToken" Width="1.5" PointX="5.25" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaSalesModel.Order" Width="1.5" PointX="5.25" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaSalesModel.OrderDetail" Width="1.5" PointX="7.5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaSalesModel.OrderMethod" Width="1.5" PointX="3" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaSalesModel.Product_Size" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaSalesModel.Product" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaSalesModel.Size" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaSalesModel.sysdiagram" Width="1.5" PointX="5.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaSalesModel.Topping" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaSalesModel.User" Width="1.5" PointX="3" PointY="16.375" IsExpanded="true" />
+        <AssociationConnector Association="PizzaSalesModel.FK_Products_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaSalesModel.FK_ExpirationToken_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaSalesModel.FK_Order_OrderMethod" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaSalesModel.FK_Order_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaSalesModel.FK_OrderDetail_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaSalesModel.FK_orderDetail_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaSalesModel.FK_OrderDetail_Size" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaSalesModel.FK_OrderDetail_Topping" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaSalesModel.FK_Product_Size_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaSalesModel.FK_Product_Size_Size" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaSalesModel.Product_Topping" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
